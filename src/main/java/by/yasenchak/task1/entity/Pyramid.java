@@ -4,16 +4,25 @@ import java.io.Serializable;
 
 public class Pyramid implements Serializable {
 
-    private double numberOfAngles;
+    private static final long serialVersionUID = -2890388334857103595L;
+    private int numberOfAngles;
     private double height;
-    private double radiusOfSphere;
+    private double bottomSideLength;
+    private Point pointOfCentrePyramid;
 
 
     public Pyramid(){
         super();
     }
 
-    public double getNumberOfAngles() {
+    public Pyramid(int numberOfAngles, double height, double radiusOfSphere, Point pointOfCentrePyramid){
+        this.numberOfAngles = numberOfAngles;
+        this.height = height;
+        this.bottomSideLength = radiusOfSphere;
+        this.pointOfCentrePyramid = pointOfCentrePyramid;
+    }
+
+    public int getNumberOfAngles() {
         return numberOfAngles;
     }
 
@@ -29,12 +38,20 @@ public class Pyramid implements Serializable {
         this.height = height;
     }
 
-    public double getRadiusOfSphere() {
-        return radiusOfSphere;
+    public double getBottomSideLength() {
+        return bottomSideLength;
     }
 
-    public void setRadiusOfSphere(double radiusOfSphere) {
-        this.radiusOfSphere = radiusOfSphere;
+    public void setBottomSideLength(double bottomSideLength) {
+        this.bottomSideLength = bottomSideLength;
+    }
+
+    public Point getPointOfCentrePyramid() {
+        return pointOfCentrePyramid;
+    }
+
+    public void setPointOfCentrePyramid(Point pointOfCentrePyramid) {
+        this.pointOfCentrePyramid = pointOfCentrePyramid;
     }
 
     @Override
@@ -47,7 +64,7 @@ public class Pyramid implements Serializable {
 
         return this.numberOfAngles == pyramid.numberOfAngles &&
                 this.height == pyramid.height &&
-                this.radiusOfSphere == pyramid.radiusOfSphere;
+                this.bottomSideLength == pyramid.bottomSideLength;
     }
 
     @Override
@@ -57,8 +74,18 @@ public class Pyramid implements Serializable {
 
         result = prime * result + Double.valueOf(numberOfAngles).hashCode();
         result = prime * result + Double.valueOf(height).hashCode();
-        result = prime * result + Double.valueOf(radiusOfSphere).hashCode();
+        result = prime * result + Double.valueOf(bottomSideLength).hashCode();
 
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getName() + "{" +
+                "numberOfAngles=" + numberOfAngles +
+                ", height=" + height +
+                ", bottomSideLength=" + bottomSideLength +
+                ", pointOfCentrePyramid=" + pointOfCentrePyramid +
+                '}';
     }
 }

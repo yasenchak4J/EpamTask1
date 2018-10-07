@@ -1,5 +1,6 @@
 package task1;
 
+import by.yasenchak.task1.exception.ReadException;
 import by.yasenchak.task1.reader.ReaderImpl;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -15,12 +16,12 @@ public class ReadOnlyValidLineTest {
     @BeforeClass
     public void beforeReadOnlyValidTest(){
         expectedList = new ArrayList<>();
-        expectedList.add("3.0 10.2 5.2 3.0 2.0");
+        expectedList.add("3.0 10.2 5.2 3.0 2.0 1.0");
     }
 
     @Test
-    public void textReadOnlyValidLinesMethod(){
+    public void testReadOnlyValidLinesMethod() throws ReadException {
         ReaderImpl reader = new ReaderImpl();
-        Assert.assertEquals(reader.readOnlyValid(), expectedList);
+        Assert.assertEquals(reader.readOnlyValid("resource1/data.txt"), expectedList);
     }
 }

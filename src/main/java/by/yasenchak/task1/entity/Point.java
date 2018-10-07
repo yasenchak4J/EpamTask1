@@ -1,10 +1,10 @@
 package by.yasenchak.task1.entity;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 public class Point implements Serializable {
 
+    private static final long serialVersionUID = -8228737910229286905L;
     private double pointX;
     private double pointY;
     private double pointZ;
@@ -17,7 +17,7 @@ public class Point implements Serializable {
         return pointX;
     }
 
-    public void setPointX(int pointX) {
+    public void setPointX(double pointX) {
         this.pointX = pointX;
     }
 
@@ -25,7 +25,7 @@ public class Point implements Serializable {
         return pointY;
     }
 
-    public void setPointY(int pointY) {
+    public void setPointY(double pointY) {
         this.pointY = pointY;
     }
 
@@ -33,7 +33,7 @@ public class Point implements Serializable {
         return pointZ;
     }
 
-    public void setPointZ(int pointZ) {
+    public void setPointZ(double pointZ) {
         this.pointZ = pointZ;
     }
 
@@ -60,6 +60,14 @@ public class Point implements Serializable {
         result = prime * result + Double.valueOf(pointZ).hashCode();
 
         return result;
+    }
 
+    @Override
+    public String toString() {
+        return getClass().getName() + "{" +
+                "pointX=" + pointX +
+                ", pointY=" + pointY +
+                ", pointZ=" + pointZ +
+                '}';
     }
 }

@@ -10,7 +10,7 @@ public class ValidatorTest {
 
     @BeforeClass
     public void beforeValidatorTest(){
-        inputString = "3.0 10.2 5.2 3.0 2.0";
+        inputString = "3.0 10.2 5.2 3.0 2.0 1.0";
     }
 
     @Test
